@@ -1,0 +1,20 @@
+﻿@model List<BATZBlog.Models.Show>
+
+<div class="sideBarPost">
+    <span class="emptySpan">
+    @Html.ActionLink( " ", "TourDates", "Public", new { @class = "fold" } )
+</span>
+
+
+    <div class="blogTitle">Upcoming Events</div>
+
+
+    <div class="blogBodyFull">
+        @foreach(var show in Model)
+        {
+            <div>
+                <p>@show.ShowDate.ToShortDateString() - @show.VenueName</p>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,121 @@
+@using BATZBlog.Models
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row blogTitle margin-spacer">
+                <div class="col-xs-12">
+                    <div>
+                        Orders
+                    </div>
+                </div>
+            </div>
+            <div class="row blogBodyFull margin-spacer">
+                <div class="col-xs-4">
+                    <div class="row">
+                        <canvas id=salesByMonthYear width="380" height="400"></canvas>
+                    </div>
+                    <div class="row labelsForCharts">
+                        <span class="labelsForCharts">
+                            Sales By Month
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row">
+                        <canvas id="myChart" height="400" width="380"></canvas>
+                    </div>
+                    <div class="row labelsForCharts">
+                        <span class="labelsForCharts">
+                            Sales By Product
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row ">
+                        <canvas id="salesByCategory" width="275" height="400"></canvas>
+                    </div>
+                    <div class="row labelsForCharts">
+                        <span class="labelsForCharts">
+                            Sales By Category
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-app="ordersApp">
+                <div ng-controller="ordersController">
+                    <div class="row filter">
+                        <div class="col-lg-2 searchPadding">
+                            <label>Search by Date</label>
+                            <input type="text" class="form-control" ng-model="searchFilter"/>
+                        </div>
+                        <div class="col-lg-2 searchPadding">
+                            <label>Search By Last Name</label>
+                            <input type="text" class="form-control" ng-model="customerFilter"/>
+                        </div>
+                        <div class="col-lg-2 searchPadding">
+                            <label>Search by Product</label>
+                            <input type="text" class="form-control" ng-model="productFilter"/>
+                        </div>
+                        <div class="col-lg-3 nopadding totals">
+                            Total Units Sold: {{resultValue | sumOfValue:'Quantity'}}
+                        </div>
+                        <div class="col-lg-3 nopadding totals">
+                            Total Sales : {{resultValue | totalSumPriceQty:'Quantity':'Price'}}
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin: 0px 5px 0px 5px">
+                        <table class="col-xs-12 table-striped tableForOrders tablerow margin-spacer">
+                            <thead class="showTableHeader">
+                            <tr class="tablerow">
+                                <th>Date</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Product Name</th>
+                                <th>OrderStatus</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="ord in resultValue=(orders | filter:{'OrderDate':searchFilter,'ProductName':productFilter, 'CustomerLastName':customerFilter})">
+                                <td>{{ord.OrderDate | date}}</td>
+                                <td>{{ord.CustomerFirstName}}</td>
+                                <td>{{ord.CustomerLastName}}</td>
+                                <td>{{ord.ProductName}}</td>
+                                <td>
+                                    <button ng-class="{'btn button-shipped': ord.OrderStatus === 'Shipped','btn button-notShipped': ord.OrderStatus === 'NotShipped','btn button-readytoShip': ord.OrderStatus === 'ReadyToShip'}" type="button" ng-click="changeit(ord.OrderId)">{{ord.OrderStatus}}</button>
+                                </td>
+                                <td>{{ord.Quantity}}</td>
+                                <td>{{ord.Price}}</td>
+                                <td>{{ord.Quantity * ord.Price}}</td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                        @*<br/>
+                            <h4>Total Units Sold: {{resultValue | sumOfValue:'Quantity'}}</h4>
+                            <br/>
+                            <h4>Total Sales : {{resultValue | totalSumPriceQty:'Quantity':'Price'}}</h4>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/App/OrderModule.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script src="~/Scripts/App/DashboardGraphs.js"></script>
+
+}

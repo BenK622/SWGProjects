@@ -1,0 +1,52 @@
+﻿@model BATZBlog.Models.StaticPages
+
+@{
+    ViewBag.Title = "Delete Tour Page";
+}
+
+<h3 class="adminTitle">Are you sure you want to delete @Model.Title?</h3>
+
+@using (Html.BeginForm("DeleteStaticPage", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(b => b.PageId)
+    @*@Html.HiddenFor(b => b.Title)*@
+
+    @*<div class="row">
+        <div class="col-xs-1 adminRowLabel">Title:</div>
+        <div class="col-xs-8 adminRowContent">@Model.Title</div>
+    </div>
+
+    <div class="row">
+        <div class="blogBody">
+            <p>@Html.Raw(Model.PageBody)</p>
+
+        </div>
+    </div>*@
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    @Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-info" })
+    <br/>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="blogPost">
+                            <div class="blogTitle">@Model.Title</div>
+
+                            <div class="blogBodyFull">
+                                <p>@Html.Raw(Model.PageBody)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+}
+
+
+
+

@@ -1,0 +1,80 @@
+﻿@using BATZBlog.Models
+@model BATZBlog.Models.BlogPost
+@{
+    ViewBag.Title = "Edit Post";
+    <link href="~/Content/TagItZendesk.css" rel="stylesheet" />
+    <link href="~/Content/jquery.tagit.css" rel="stylesheet" />
+}
+
+<h3 class="adminTitle">Edit Blog Post</h3>
+
+@using (Html.BeginForm("EditPost", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(p => p.BlogId)
+       
+        <div class="col-sm-12">
+            <div>
+                <label>Title</label>
+                @Html.TextBoxFor(p => p.Title, new { @class = "form-control", placeholder = "Title" })
+                <div class="error">@Html.ValidationMessageFor(p => p.Title)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Body</label>
+                @Html.TextAreaFor(p => p.PostBody, new { @class = "form-control", id = "mytextarea" })
+                <div class="error">@Html.ValidationMessageFor(p => p.PostBody)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Post Date</label>
+                @Html.TextBoxFor(p => p.PostDate, new { @Value = @DateTime.Now.ToShortDateString() })
+                <div class="error">@Html.ValidationMessageFor(p => p.PostDate)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Category</label>
+                @Html.EnumDropDownListFor(p => p.Category, null, new { @class = "form-control", placeholder = "Category" })
+                <div class="error">@Html.ValidationMessageFor(p => p.Category)</div>
+            </div>
+            <br />
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div>
+                    <label>Status</label>
+                    @Html.EnumDropDownListFor(p => p.StatusOfApproval, null, new {@class = "form-control"})
+                    <div class="error">@Html.ValidationMessageFor(p => p.StatusOfApproval)</div>
+                </div>
+            }
+            else
+            {
+                @Html.HiddenFor(p => p.StatusOfApproval)
+            }
+
+
+            <div class="form-group" id="TagItId">
+                <Label>Tags</Label>
+                @Html.TextBoxFor(b => b.TagHolder, null, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    @Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-info" })
+}
+
+@section scripts{
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="~/scripts/app/tinyMceToolbar.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/App/BlogValidation.js"></script>
+    <script src="~/Scripts/app/jquery-validate-defaults.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/tag-it.js"></script>
+    <script src="~/Scripts/App/TagItInit.js"></script>
+}
+

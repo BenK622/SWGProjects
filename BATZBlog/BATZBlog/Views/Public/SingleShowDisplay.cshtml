@@ -1,0 +1,29 @@
+﻿@model BATZBlog.Models.Show
+
+@{
+    ViewBag.Title = "SingleShowDisplay";
+}
+
+<h2>@Model.ShowDate</h2>
+
+    <div id="floating-panel">
+        <input id="address" type="textbox" value="Sydney, NSW">
+        <input id="submit" type="button" value="Geocode">
+    </div>
+    <div id="map" style="height: 100%; visibility:visible; width:300px" ></div>
+
+    <div>
+
+        <h3>@Model.VenueName</h3>
+
+        <p>@Model.City @Model.State</p>
+
+    </div>
+
+    @section Scripts{
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBKFVTYAZcYxgi69U0edAEWl0cRik6fF8&callback=initMap"
+                type="text/javascript"></script>
+        <script src="~/Scripts/App/ShowMap.js"></script>
+    }
+
+    @*//api key AIzaSyCBKFVTYAZcYxgi69U0edAEWl0cRik6fF8*@

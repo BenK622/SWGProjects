@@ -1,0 +1,89 @@
+﻿@model BATZBlog.Models.HomePageViewModel
+
+
+@{
+    ViewBag.Title = "ListofBlogPost";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            @if(Model.blogs != null)
+            {
+                foreach(var blog in Model.blogs.Take( 5 ))
+                {
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="blogPost">
+                                <span class="emptySpan">
+                                    @Html.ActionLink( " ", "ViewPost", "Public", new { blog.BlogId }, new { @class = "fold" } )
+                                </span>
+                                <div class="blogTitle">@blog.Title</div>
+
+                                <div class="blogBodyFull">
+                                    @Html.Raw( blog.PostBody )
+                                </div>
+                                @if(blog.Tags != null & blog.Tags.Count > 0)
+                                {
+                                    <div class="blogBodyFull">
+                                        @foreach(var tag in blog.Tags)
+                                        {
+                                            <div class="btn btn-sm tagButton">@tag.Name</div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            else
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p style="color: red">There are no blog posts!</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+        <div class="col-lg-4 col-md-4 col-sm-0 col-xs-0">
+            <div>
+                <div class="row">
+                    <div class="sidebarRight">
+                        <div id="upcomingShows"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sidebarRight">
+                        <div id="postsByCategories"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sidebarRight">
+                        <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/JaggedArrays">Tweets by JaggedArrays</a>
+                    </div>
+                  
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="sidebarRight">
+                            @Html.Partial("GetAllTagsInuse", Model.TagCounts)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/App/jquery.dotdotdot.min.js"></script>
+    <script src="~/Scripts/App/DotDotHome.js"></script>
+    <script src="~/Scripts/App/HomePageSideBar.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+}

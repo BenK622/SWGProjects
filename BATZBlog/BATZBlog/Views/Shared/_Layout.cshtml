@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Jagged Arrays Blog</title>
+
+    @Scripts.Render( "~/bundles/modernizr" )
+    @Styles.Render( "~/Content/css" )
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+</head>
+<body>
+<div class="container-full">
+    <div class="navbar customNav navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink( "Jagged Arrays", "HomePage", "Public", new { area = "" }, new { @class = "navbar-brand navTitle" } )
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+
+                    <li>@Html.ActionLink("Discography", "DiscographyPage", "Public")</li>
+                    <li>@Html.ActionLink("Shows", "TourDates", "Public")</li>
+                    <li>@Html.ActionLink("Merchandise", "ProductDisplay", "Public")</li>
+                    
+                    <li  class="dropdown "> 
+             
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" >Tours<span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="staticLinkPartial" role="menu">
+
+                        </ul>
+
+                    </li>
+                
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                </ul>
+
+          
+            
+               @Html.Partial( "_LoginPartial" )
+
+                    @*<li>@Html.ActionLink("Discography", "DiscographyPage", "Public")</li>
+                    <li>@Html.ActionLink("Shows", "TourDates", "Public")</li>
+                    <li id="staticLinkPartial"></li>
+                        @Html.Partial("_LoginPartial")
+                    <li>@Html.ActionLink( "About", "About", "Home" )</li>
+                    <li>@Html.ActionLink( "Contact", "Contact", "Home" )</li>
+                    
+                </ul>*@
+                @*<div id="staticLinkPartial"></div>
+                @Html.Partial( "_LoginPartial" )*@
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div class="row">
+            @RenderBody( )
+        </div>
+        <hr/>
+        <div class="row">
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Jagged Arrays Blog</p>
+            </footer>
+        </div>
+    </div>
+</div>
+     @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Scripts/bootstrap.min.js")
+
+@Scripts.Render( "~/bundles/themes/slate/bootstrap" )
+@Scripts.Render( "~/Scripts/App/StaticPageNavBar.js" )
+@Scripts.Render("~/Scripts/angular.min.js")
+@Styles.Render( "~/Content/css" ) 
+@RenderSection( "scripts", required : false )
+</body>
+</html>

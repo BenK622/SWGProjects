@@ -1,0 +1,106 @@
+﻿@model BATZBlog.Models.OrderViewModel
+@{
+    ViewBag.Title = "OrderConfirmation";
+}
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<div class="container-fluid blogBodyFull"  style="border:1px solid #cecece;">
+ 
+
+    <div class="row">
+
+        <br />
+        <br />
+        <br />
+        <br />
+       
+        <div class="col-sm-4 col-sm-offset-4">
+             <h2  class="blogTitle" style="text-align:center">Thank You!</h2>
+            <br />
+            <br />
+               
+        </div>
+
+     
+    </div>
+    <div class="row">
+        <div class="col-sm-12 ">
+            <h1 class="OrderTitle">Your Order</h1>
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+       
+
+        <div class="col-sm-6 "  style="text-align:right">
+            <label>Customer First Name:</label>
+
+        </div>
+        <div class="col-sm-6" style="text-align:left">
+
+           @Html.DisplayFor(o => o.order.CustomerFirstName)
+        </div>
+       
+    </div>
+
+
+    <div class="row">
+      
+     
+        <div class="col-sm-6 " style="text-align:right" >
+            <label >Customer Last Name:</label>
+       
+        </div>
+        <div class="col-sm-6" style="text-align:left">
+       
+            @Html.DisplayFor(o => o.order.CustomerLastName)
+        </div>
+   
+    </div>
+
+
+
+    <div class="row">
+       
+        <div class="col-sm-6 " style="text-align:right">
+            <label >Product Name:</label>
+        
+        </div>
+        <div class="col-sm-6 " style="text-align:left">
+     
+            @Html.DisplayFor(o => o.product.ProductName)
+        </div>
+     
+    </div>
+
+
+
+
+    <div class="row">
+        
+        <div class="col-sm-6"   style="text-align:right;">
+            <label >State:</label>
+     
+        </div>
+        <div class="col-sm-6"  style="text-align:left">
+      
+            @Html.DisplayFor(o => o.order.CustomerState)
+        </div>
+      
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+</div>

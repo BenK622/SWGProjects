@@ -1,0 +1,66 @@
+﻿@model BATZBlog.Models.BlogPost
+
+@{
+    ViewBag.Title = "ViewPost";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="blogPost">
+                        <div class="blogTitle">
+                            <span>@Model.Title</span>
+                            <span class="author"> - By @Html.Raw( Model.AuthorFirstName )</span>
+
+                        </div>
+                        <div class="blogBodyFull">
+                            <p>@Html.Raw( Model.PostBody )</p>
+                        </div>
+
+                        @if(Model.Tags != null & Model.Tags.Count > 0)
+                        {
+                            <div class="blogBody">
+                                @foreach(var tag in Model.Tags)
+                                {
+                                    <div class="btn btn-sm tagButton">@tag.Name</div>
+                                }
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-0 col-xs-0">
+            <div>
+                <div class="row">
+                    <div class="sidebarRight">
+                        <div id="upcomingShows"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sidebarRight">
+                        <div id="postsByCategories"></div>
+                    </div>
+                </div>
+
+                @*<div class="row">
+                    <div class="sidebarRight">
+                        @Html.Partial("GetAllTagsInuse", Model.TagCounts)
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/App/jquery.dotdotdot.min.js"></script>
+    <script src="~/Scripts/App/DotDotHome.js"></script>
+    <script src="~/Scripts/App/HomePageSideBar.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+}

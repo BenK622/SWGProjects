@@ -1,0 +1,48 @@
+﻿@using BATZBlog.Models
+@model List<BATZBlog.Models.BlogPost>
+@{
+    ViewBag.Title = "Admin Home";
+}
+
+<div class="blogTitle margin-spacer">Admin Home</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <table class="table adminHomeBody nopadding">
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-1"></td>
+                        <td class="col-xs-2">
+                            <a href="#" id="blog">Blog Posts</a>
+                        </td>
+
+                        <td class="col-xs-2">
+                            <a href="#" id="tour">Shows</a>
+                        </td>
+
+                        <td class="col-xs-2">
+                            <a href="#" id="page">Tour Pages</a>
+                        </td>
+
+                        <td class="col-xs-2">
+                            <a href="#" id="product">Products</a>
+                        </td>
+
+                        <td class="col-xs-2">
+                            @Html.ActionLink( "Orders", "ListOfOrders" )
+                        </td>
+                        <td class="col-xs-1"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+            <div id="partialPlaceHolder"></div>
+
+            @section Scripts {
+                <script src="~/Scripts/App/AdminPartialViewLinks.js"></script>
+            }

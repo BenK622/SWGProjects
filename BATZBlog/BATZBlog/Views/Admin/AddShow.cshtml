@@ -1,0 +1,53 @@
+﻿@model BATZBlog.Models.Show
+
+@{
+    ViewBag.Title = "Add Show";
+}
+
+<h3 class="adminTitle">Add New Show</h3>
+
+@using (Html.BeginForm("AddShow", "Admin", FormMethod.Post, new { id = "showForm" }))
+{
+    <div class="form-group">
+        <div class="col-sm-12">
+            <div>
+                <label>Date</label>
+                @Html.TextBoxFor(s => s.ShowDate, new { @class = "datepicker"})
+                <div class="error">@Html.ValidationMessageFor(s => s.ShowDate)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Venue</label>
+                @Html.TextBoxFor(s => s.VenueName, new { @class = "form-control"})
+                <div class="error">@Html.ValidationMessageFor(s => s.VenueName)</div>
+            </div>
+            <br />
+            
+            <div>
+                <label>City</label>
+                @Html.TextBoxFor(s => s.City, new { @class = "form-control" })
+                <div class="error">@Html.ValidationMessageFor(s => s.City)</div>
+            </div>
+            <br />
+            
+            <div>
+                <label>State</label>
+                @Html.TextBoxFor(s => s.State, new { @class = "form-control" })
+                <div class="error">@Html.ValidationMessageFor(s => s.State)</div>
+            </div>
+            <br />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    @Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-info" })
+}
+
+@section scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/App/ShowValidation.js"></script>
+    <script src="~/Scripts/app/jquery-validate-defaults.js"></script>
+    <script src="~/scripts/app/datepicker.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+}

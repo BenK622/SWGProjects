@@ -1,0 +1,946 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #050505
+}
+
+/* Set padding to keep content from hitting the edges */
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+
+.dl-horizontal dt { white-space: normal; }
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+input,
+select,
+textarea { max-width: 280px; }
+
+/* This sets the height for the dotdotdot plugin which shows a preview of a blog post */
+
+.Wrapper { max-height: 200px; }
+
+/* This is the styling for the blog and page titles. Also used as the home button */
+
+.blogBody {
+    max-height: 200px;
+    padding: 20px 35px 25px 35px;
+    font-family: 'Special Elite', cursive;
+    background-color: #333;
+    border: 1px solid #393939;
+    word-wrap: normal !important;
+}
+
+.fold {
+    height: 1%;
+    position: absolute;
+    left: 100%;
+    font-size: 10%;
+    text-decoration: none;
+    color: #444;
+    background: #222;
+    transition: all ease .4s;
+}
+
+/*
+  paper fold corner
+*/
+
+.fold:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 25px 25px 0;
+    border-color: #404040 #050505;
+    transition: all ease .5s;
+}
+
+/*
+  on li hover make paper fold larger
+*/
+
+.fold:hover:before {
+    border-width: 0px 40px 40px 0;
+    border-color: #404040 #050505;
+}
+
+
+/* This is the styling for the blog and page bodies. Also used in the nav bar */
+
+.blogPost {
+    background-color: #252525;
+    position: relative;
+    margin: 35px 0px 0px 0px;
+    width: 99%;
+}
+
+.sideBarPost {
+    position: relative;
+    width: 100%
+}
+
+
+
+.blogTitle {
+
+    color: #f89406;
+    font-family: 'Rock Salt', cursive;
+    padding: 15px 0px 15px 19px;
+    font-size: 125%;
+    border: .1px solid #333;
+    background-color: #292929;
+}
+
+.bottomBorder {
+    border-width: 2px;
+
+    border-bottom: 10px #292929 solid;
+}
+
+
+
+.OrderTitle {
+
+    color: #f89406;
+    font-family: 'Special Elite', cursive;
+    text-align: center;
+    font-size: 125%;
+}
+
+.OrderDetail {
+
+    color: #f89406;
+    font-family: 'Special Elite', cursive;
+}
+
+.PorductName {
+    color: #FF33D1;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+}
+
+
+
+.blogTitle a {
+
+    color: #f89406;
+    font-family: 'Rock Salt', cursive;
+    /*padding: 15px 0px 15px 19px;
+    font-size: 125%;
+    border: .1px solid #333;
+    background-color: #292929;*/
+}
+
+
+
+
+
+
+.blogBodyFull {
+    padding: 20px 35px 25px 35px;
+    font-family: 'Special Elite', cursive;
+    background-color: #333;
+    border: 1px solid #393939;
+    word-wrap: break-word;
+}
+
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.albumName {
+    color: #FF33D1;
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    text-align: center
+}
+
+.trackName {
+    font-family: 'Special Elite', cursive;
+    color: #f89406;
+    font-size: 15px;
+    padding: 10px 0px 10px 0px;
+}
+
+.adminHomeBody {
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: #333;
+}
+
+.tour {
+    color: #FF33D1;
+    font-family: 'Special Elite', cursive;
+    text-decoration: underline;
+    padding: 10px 0px 10px 10px !important;
+}
+
+.showTableHeader {
+    color: #FF33D1;
+    font-family: 'Special Elite', cursive;
+    text-decoration: underline;
+}
+
+.emptySpan { height: 0px; }
+
+.customNav {
+    background: black;
+    border-bottom: .5px solid #444
+}
+
+.navTitle {
+    border: 0px transparent;
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    color: #f89406;
+    align-content: center;
+}
+
+.sidebarRight {
+    height: auto;
+    width: 100%;
+    background: #333;
+    margin: 35px 0px 0px 5px;
+}
+
+.img-margin-default {
+    margin-top: 35px;
+    padding: 0px;
+    display: block;
+    text-align: left;
+    position: relative;
+}
+
+.button-ViewMore {
+    margin: 35px 0px 0px 0px;
+    color: white;
+    background-color: #292929;
+    border: 1px solid #444;
+    font-size: 16px;
+}
+
+.button-ViewMore:hover {
+    color: white;
+    background-color: #393939
+}
+
+.button-ViewMore:active { background-image: none; }
+
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav-margins { margin: 0% 185px 0% 185px; }
+
+.tagButton {
+    color: white;
+    background-color: #292929;
+    background-color: #FF33D1;
+}
+
+
+.error {
+    color: red;
+    font-family: 'Special Elite', cursive;
+}
+
+.margin-spacer { margin: 35px 0px 0px 0px; }
+
+/*.username {
+    text-align: right;
+    color: #999;
+    font-size: 80%;
+}*/
+
+.contact {
+    font-size: 125%;
+    line-height: 125%;
+    padding: 45px 35px 45px 35px;
+    font-family: 'Special Elite', cursive;
+    background-color: #333;
+    border: 1px solid #393939;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.contactContainer {
+    background-color: #252525;
+    position: relative;
+    width: 100%;
+    margin: 35px 0px 0px 0px;
+}
+
+.img-resize-left {
+    height: auto;
+    width: 100%;
+    position: relative;
+    left: 0px;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+    margin-top: 35px;
+}
+
+.pink { background-color: #FF33D1 }
+
+.myChart {
+    height: 850px;
+    width: 100px;
+    display: inline;
+}
+
+
+.author {
+    color: gray;
+    font-family: 'Special Elite', cursive;
+}
+
+
+div.feature { position: relative; }
+
+div.feature a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none; /* No underlines on the link */
+    background-color: #FFF; /* Fix to make div clickable in IE */
+    opacity: 0; /* Fix to make div clickable in IE */
+    /*filter: alpha(opacity=1);*//* Fix to make div clickable in IE */
+}
+
+
+.contactUsImage {
+    height: auto;
+    width: 36%;
+    position: relative;
+    right: 50px;
+    float: right;
+}
+
+.releaseDate {
+    font-family: 'Special Elite', cursive;
+    text-align: center;
+}
+
+.albumnCover {
+    padding: 20px;
+    background-color: #333;
+    text-align: center;
+    display: block;
+}
+
+.albumnSongs {
+    padding: 10px 0px 10px 0px;
+    font-family: 'Special Elite', cursive;
+    background-color: #333;
+    word-wrap: break-word;
+    vertical-align: middle !important;
+    text-align: center !important;
+    margin-right: 15px;
+}
+
+.albumnSongs2 {
+    padding: 14px 0px 14px 0px;
+    font-family: 'Special Elite', cursive;
+    background-color: #333;
+    word-wrap: break-word;
+    vertical-align: middle !important;
+    text-align: center !important;
+    margin-right: 15px;
+}
+
+.song {
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+
+.albumnColumnHeight {
+    height: 420px;
+    background-color: #333;
+}
+
+.jag { padding-top: 20px; }
+
+label {
+    font-family: 'Special Elite', cursive;
+    color: #FF33D1;
+}
+
+.adminTitle {
+
+    color: #f89406;
+    font-family: 'Rock Salt', cursive;
+    padding: 15px 0px 15px 19px;
+    font-size: 125%;
+}
+
+.adminRowLabel {
+    font-family: 'Special Elite', cursive;
+    color: #FF33D1;
+    font-size: 18px;
+}
+
+.adminRowContent {
+    font-family: 'Special Elite', cursive;
+    color: white;
+    font-size: 18px;
+}
+
+/* Buttons for the list of orders page*/
+
+.button-shipped {
+    color: white;
+    background-color: green;
+    width: 110px;
+    height: 35px;
+}
+
+.button-notShipped {
+    color: white;
+    background-color: red;
+    width: 110px;
+    height: 35px;
+}
+
+.button-readytoShip {
+    color: white;
+    background-color: #f89406;
+    width: 110px;
+    height: 35px;
+}
+
+.right { text-align: right; }
+
+.filter {
+    margin: 35px 5px 0px 5px;
+    padding: 10px 5px 5px 5px;
+    font-family: 'Special Elite', cursive;
+    background-color: #333;
+    border: 1px solid #404040;
+    word-wrap: break-word;
+}
+
+.tablerow > thead > tr > th {
+    background-color: #333;
+    padding: 10px 10px 10px 15px;
+    margin: 35px 5px 0px 5px;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td,
+tr.found {
+    background-color: #333;
+    padding: 5px 5px 5px 15px;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+tr.found {
+    background-color: #444;
+    padding: 5px 5px 5px 15px;
+}
+
+.searchPadding { padding: 10px 10px 20px 15px; }
+
+.totals {
+    font-size: 150%;
+    padding: 35px 0px 0px 0px !important;
+    text-align: center;
+}
+
+.labelsForCharts {
+    text-align: center !important;
+    padding: 15px 0px 0px 0px;
+    font-size: 125%;
+}
+
+.about {
+    font-size: 115%;
+    line-height: 150%;
+}
+
+.productImage > img {
+    height: 300px;
+    width: 300px;
+}
+
+.productContainer {
+    padding: 30px 0px 50px 0px;
+    font-family: 'Special Elite', cursive;
+    word-wrap: break-word;
+    vertical-align: middle !important;
+    text-align: center !important;
+    margin: 0px !important;
+    height: 550px;
+}
+
+.prodCatSeperator {
+    height: 3px;
+    background-color: #656565;
+    margin: 15px 0px 35px 0px;
+}
+
+.productCatContainer {
+    background-color: #161616;
+    border: 1px solid #303030
+}
+
+.productTitle {
+
+    color: #f89406;
+    font-family: 'Rock Salt', cursive;
+    font-size: 125%;
+    padding: 0px;
+    vertical-align: middle !important;
+    text-align: center;
+    display: block;
+    margin-top: 23px;
+}
+
+.productDesc {
+    padding: 0px 20px 0px 20px;
+    height: 85px;
+}
+
+.productTitalAndDesription > .row {
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.productCatTitleContainer > .row { margin: 35px 0px 35px 0px; }
+
+.detailImage {
+    display: block;
+    margin: auto;
+}
+
+.labelPad {
+    padding: 13px 0 0 4px;
+}
+
+/*.lineAnimation {
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+}
+
+.lineAnimationLeft1 {margin: 4px 32% 0 0;
+
+}
+
+.lineAnimationLeft2 { margin: 4px 24% 0 8%; }
+
+.lineAnimationLeft1:hover + .lineAnimationLeft3 { margin: 4px 16% 0 16%; }
+
+.lineAnimationLeft4 { margin: 4px 8% 0 24%; }
+
+.lineAnimationLeft5 { margin: 4px 0 0 33%; }
+
+.lineAnimationLeft6 { margin: 4px 8% 0 24%; }
+
+.lineAnimationLeft7 { margin: 4px 16% 0 16%; }
+
+.lineAnimationLeft8 { margin: 4px 24% 0 8%; }
+
+.lineAnimationLeft9 { margin: 4px 33% 0 0; }
+
+.lineAnimationRight1 { margin: 4px -8% 0 24%; }
+
+.lineAnimationRight2 { margin: 4px 0% 0 16%; }
+
+.lineAnimationRight3 { margin: 4px 8% 0 8%; }
+
+.lineAnimationRight4 { margin: 4px 16% 0 0%; }
+
+.lineAnimationRight5 { margin: 4px 24% 0 -8%; }
+
+.lineAnimationRight6 { margin: 4px 16% 0 0%; }
+
+.lineAnimationRight7 { margin: 4px 8% 0 8%; }
+
+.lineAnimationRight8 { margin: 4px 0% 0 16%; }
+
+.lineAnimationRight9 { margin: 4px -8% 0 24%; }
+
+span {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+
+.lineAnimationLeft1:before {
+    content: "";
+    padding: 2px 0 2px 0 !important;
+    border-style: solid;
+    border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 32% 0 0;
+    transition: all .5s ease
+}
+
+.lineAnimationLeft2:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 24% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft3:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 16% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft4:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 8% 0 24%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft5:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 0 0 33%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft6:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 8% 0 24%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft7:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 16% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft8:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 24% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft9:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 33% 0 0;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight1:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px -8% 0 24%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight2:before {
+    content: "";
+    border-style: solid;
+    display: block;
+        border: 0px;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 0% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight3:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 8% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight4:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 16% 0 0%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight5:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 24% 0 -8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight6:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 16% 0 0%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight7:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 8% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight8:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px 0% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight9:before {
+    content: "";
+    border-style: solid;
+        border: 0px;
+    display: block;
+    height: 4px;
+    background-color: #656565;
+    width: 76%;
+    position: relative;
+    color: #444;
+    margin: 4px -8% 0 24%;
+    transition: all ease .5s;
+}
+
+
+.lineAnimationLeft1:hover:before {
+    margin: 4px 0% 0 32%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft2:hover:before {
+    margin: 4px 8% 0 24%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft3:hover:before {
+    margin: 4px 16% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft4:hover:before {
+    margin: 4px 24% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft5:hover:before {
+    margin: 4px 32% 0 0%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft6:hover:before {
+    margin: 4px 24% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft7:hover:before {
+    margin: 4px 16% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft8:hover:before {
+    margin: 4px 8% 0 24%;
+    transition: all ease .5s;
+}
+
+.lineAnimationLeft9:hover:before {
+    margin: 4px 0% 0 32%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight1:hover:before {
+    margin: 4px 24% 0 -8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight2:hover:before {
+    margin: 4px 16% 0 0%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight3:hover:before {
+    margin: 4px 8% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight4:hover:before {
+    margin: 4px 0% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight5:hover:before {
+    margin: 4px -8% 0 24%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight6:hover:before {
+    margin: 4px 0% 0 16%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight7:hover:before {
+    margin: 4px 8% 0 8%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight8:hover:before {
+    margin: 4px 16% 0 0%;
+    transition: all ease .5s;
+}
+
+.lineAnimationRight9:hover:before {
+    margin: 4px 24% 0 -8%;
+    transition: all ease .5s;
+}
+
+
+.productTitle, #parent { cursor: pointer; }
+
+.lineAnimationLeft1:hover ~ .lineAnimationLeft2 ~ .lineAnimationLeft3 {
+    background-color: red;
+    color: white;
+}*/

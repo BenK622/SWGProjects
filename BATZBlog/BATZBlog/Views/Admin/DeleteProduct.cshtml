@@ -1,0 +1,54 @@
+﻿@model BATZBlog.Models.Product
+
+@{
+    ViewBag.Title = "Delete Product";
+}
+
+<h3 class="adminTitle">Are you sure you want to delete this Product?</h3>
+
+@using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(p => p.ProductId)
+    @Html.HiddenFor(p => p.ProductImagePath)
+
+    <div class="row">
+        <div class="col-xs-2 adminRowLabel">Product Name:</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8 adminRowContent">@Model.ProductName</div>
+    </div>
+
+    <br />
+
+    <div class="row">
+    <div class="col-xs-3">
+        <img src="@string.Format(Model.ProductImagePath)" width="200" height="200" />
+    </div>
+        </div>
+        @*<p>@Model.ProductDescription</p>
+        <p>@Model.Price</p>*@
+
+    <br />
+    <div class="row">
+        <div class="col-xs-1 adminRowLabel">Description:</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8 adminRowContent">@Model.ProductDescription</div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-xs-1 adminRowLabel">Price:</div>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-8 adminRowContent">@Model.Price.ToString("C")</div>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    @Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-info" })
+}

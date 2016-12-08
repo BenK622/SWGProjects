@@ -1,0 +1,12 @@
+﻿@model List<BATZBlog.Models.Category>
+
+
+<div class="blogTitle">Get Blogs from Categories</div>
+
+<ul class="blogBody">
+    @foreach(var category in Model)
+    {
+        <li>@Html.ActionLink( category.ToString( ), "BlogPostsByCategory", "Public", new { catName = category }, null )</li>
+    }
+
+</ul>

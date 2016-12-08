@@ -1,0 +1,12 @@
+﻿@model BATZBlog.Models.StaticPages
+
+@{
+    ViewBag.Title = "StaticPageDisplay";
+}
+
+<h3 class="blogTitle margin-spacer">@Model.Title</h3>
+
+
+<div class="blogBodyFull">
+    <p>@Html.Raw(Model.PageBody)</p>
+</div>

@@ -1,0 +1,107 @@
+﻿@using BATZBlog.Models
+@model List<BATZBlog.Models.BlogPost>
+
+<div class="row" style="margin: 15px 0 0px 5px">
+    <div class="col-xs-2 nopadding">
+        @Html.ActionLink( "Add Post", "AddPost", "Admin", null, new { @class = "btn btn-success" } )
+    </div>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <table class="col-xs-12 table-striped tableForOrders tablerow margin-spacer">
+            <thead class="showTableHeader">
+            @if(Model.Count != 0)
+            {
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Author
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            }
+
+            </thead>
+            <tbody>
+            @if(Model.Count != 0)
+            {
+                foreach(var post in Model)
+                {
+                    <tr>
+                        <td>
+                            @post.PostDate.ToShortDateString( )
+                        </td>
+
+                        @switch (post.StatusOfApproval)
+                        {
+                            case StatusOfApproval.Approved:
+                                <td style="color: green">
+                                    @post.StatusOfApproval
+                                </td>
+                                break;
+
+                            case StatusOfApproval.Denied:
+                                <td style="color: red">
+                                    @post.StatusOfApproval
+                                </td>
+                                break;
+
+                            case StatusOfApproval.WaitingForApproval:
+                                <td style="color: #f89406">
+                                    @post.StatusOfApproval
+                                </td>
+                                break;
+                        }
+
+                        @if(post.AuthorFirstName != null)
+                        {
+                            <td>@post.AuthorFirstName</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+
+
+                        <td>
+                            @Html.ActionLink( post.Title, "ViewPost", "Public", new { post.BlogId }, null )
+                        </td>
+
+                        <td>
+                            @Html.ActionLink( "Edit", "EditPost", "Admin", new { post.BlogId }, new { @class = "btn btn-info" } )
+                        </td>
+
+                        <td>
+                            @Html.ActionLink( "Delete", "DeletePost", "Admin", new { post.BlogId }, new { @class = "btn btn-danger" } )
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td style="color: red">
+                        There are no blog posts!
+                    </td>
+                </tr>
+            }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+﻿@model BATZBlog.Models.Product
+
+@{
+    ViewBag.Title = "ProductDetail";
+}
+<div class="container-full productCatContainer margin-spacer">
+    <div class="row">
+        <div class="col-sm-6" style="padding: 75px 50px 0px 50px">
+            <div class="OrderTitle">@Model.ProductName</div>
+            <p style="text-align: center">@Model.ProductDescription</p>
+            <p style="text-align: center">@Html.DisplayFor( m => m.Price )</p>
+            <p style="text-align: center">@Html.ActionLink( "Order", "OrderProduct", "Public", new { Model.ProductId }, new { @class = "btn btn-success" } ) </p>
+            <p style="text-align: center">@Html.ActionLink( "Back to Store", "ProductDisplay", "Public", null, new { @class = "btn btn-info" } )</p>
+        </div>
+
+        <div class="col-sm-6 detailImage">
+            <img src="@string.Format( Model.ProductImagePath )"width="400" height="400"/>
+        </div>
+    </div>
+</div>

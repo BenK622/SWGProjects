@@ -1,0 +1,62 @@
+﻿@model BATZBlog.Models.Product
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<h3 class="adminTitle">Edit Product</h3>
+
+@using (Html.BeginForm("EditProduct", "Admin", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "productEditForm" }))
+{
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <div>
+                @Html.HiddenFor(p=> p.ProductImagePath)
+                @Html.HiddenFor(p => p.ProductId)
+                <label>Product Name</label>
+                @Html.TextBoxFor(p => p.ProductName, new { @class = "form-control", placeholder = "ProductName" })
+                <div class="error">@Html.ValidationMessageFor(p => p.ProductName)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Description of Product </label>
+                @Html.TextAreaFor(p => p.ProductDescription, new { @class = "form-control", id = "mytextarea", placeholder = "ProductDescription" })
+                <div class="error">@Html.ValidationMessageFor(p => p.ProductDescription)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Price of Product </label>
+                @Html.EditorFor(p => p.Price, new { @class = "form-control", placeholder = "Price" })
+                <div class="error">@Html.ValidationMessageFor(p => p.Price)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Category of Product </label>
+                @Html.EnumDropDownListFor(p => p.ProductCategory, new { @class = "form-control", placeholder = "ProductCategory" })
+                <div class="error">@Html.ValidationMessageFor(p => p.ProductCategory)</div>
+            </div>
+            <br />
+
+            <div>
+                <label>Upload a New Product Picture: </label>
+                <input type="file" name="file" id="file" />
+            </div>
+            <br />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+
+    @Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-info" })
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/App/ProductEditValidation.js"></script>
+    <script src="~/Scripts/app/jquery-validate-defaults.js"></script>
+    <script src="~/Scripts/additional-methods.min.js"></script>
+}

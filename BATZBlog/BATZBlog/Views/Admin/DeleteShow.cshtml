@@ -1,0 +1,32 @@
+﻿@model BATZBlog.Models.Show
+
+@{
+    ViewBag.Title = "Delete Show";
+}
+
+<h3 class="adminTitle">Are you sure you want to delete this show?</h3>
+
+@using (Html.BeginForm("DeleteShow", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(s => s.ShowId)
+    
+    <div class="row">
+        <div class="col-xs-1 adminRowLabel">Date:</div>
+        <div class="col-xs-8 adminRowContent">@Model.ShowDate.ToShortDateString()</div>
+    </div>
+        
+    <div class="row">
+        <div class="col-xs-1 adminRowLabel">Venue:</div>
+        <div class="col-xs-8 adminRowContent">@Model.VenueName</div>
+    </div>
+        
+    <div class="row">
+        <div class="col-xs-1 adminRowLabel">Location:</div>
+        <div class="col-xs-8 adminRowContent">@Model.City, @Model.State</div>
+    </div>
+
+    <br/>
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    @Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-info" })
+}

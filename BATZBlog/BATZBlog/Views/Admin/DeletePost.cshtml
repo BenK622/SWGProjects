@@ -1,0 +1,67 @@
+﻿@model BATZBlog.Models.BlogPost
+
+@{
+    ViewBag.Title = "Delete Post";
+}
+
+<h3 class="adminTitle">Are you sure you want to delete this blog post?</h3>
+
+@using (Html.BeginForm("DeletePost", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(b => b.BlogId)
+    @*<h4>@Model.Title</h4>
+
+        <div>
+            <p>@Html.Raw(Model.PostBody)</p>
+
+        </div>
+
+        if (Model.Tags != null)
+        {
+            <div class="row">
+                @foreach (var tag in Model.Tags)
+                {
+                    <div class="btn btn-default btn-sm">@tag.Name</div>
+                }
+            </div>
+        }*@
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    @Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-info" })
+    <br/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="blogPost">
+                            <div class="blogTitle">@Model.Title</div>
+
+                            <div class="author">
+                                By @Html.Raw(Model.AuthorFirstName)
+                            </div>
+
+
+                            <div class="blogBodyFull">
+                                <p>@Html.Raw(Model.PostBody)</p>
+                            </div>
+
+                            @if (Model.Tags != null & Model.Tags.Count > 0)
+                            {
+                                <div class="blogBody">
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        <div class="btn btn-sm tagButton">@tag.Name</div>
+                                    }
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
+            }

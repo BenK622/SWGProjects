@@ -1,0 +1,104 @@
+﻿@model BATZBlog.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "OrderProduct";
+}
+<div class="container-fluid margin-spacer">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="blogTitle">
+                @Html.DisplayFor( m => m.product.ProductName )
+            </div>
+            <div class="blogBodyFull" style="height: 600px">
+                <div>
+                    <img style="display: block; margin: auto;"src="@string.Format( Model.product.ProductImagePath )" width="400" height="400"/>
+                </div>
+                <div class="text-center" style="padding: 15px; font-size: 125%">
+                    <div>@Model.product.ProductDescription</div>
+                </div>
+                <div class="text-center" style="padding: 10px; font-size: 175%; font-family: 'Special Elite'">
+                    <div>@Html.DisplayFor(m => m.product.Price)</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-6">
+
+            @using(Html.BeginForm( "OrderProduct", "Public", FormMethod.Post, new { enctype = "multipart/form-data", id = "OrderAddForm" } ))
+            {
+                @Html.HiddenFor( m => m.product.Price )
+                ;
+                @Html.HiddenFor( m => m.product.ProductId )
+                ;
+                @Html.HiddenFor( m => m.product.ProductName )
+                ;
+                @Html.HiddenFor( m => m.product.ProductDescription )
+                ;
+                <div class="blogTitle">
+                    <div class="OrderDetail"> Order Form </div>
+                </div>
+                <div class="blogBodyFull" style="height:600px">
+                    <div>
+                        <label class="labelPad">Quantity: </label>
+                        <p id="quantity">@Html.EditorFor( m => m.order.Quantity, new { @class = "form-control" } ) </p>
+                        <div class="error">@Html.ValidationMessageFor( m => m.order.Quantity )</div>
+
+                    </div>
+
+                    <h3 class="OrderDetail">Customer Details </h3>
+                    <div>
+                        <label class="labelPad">First Name: </label>
+                        @Html.TextBoxFor( m => m.order.CustomerFirstName, new { @class = "form-control" } )
+                        <div class="error">@Html.ValidationMessageFor( m => m.order.CustomerFirstName )</div>
+                    </div>
+                    <div>
+                        <label class="labelPad">Last Name: </label>
+                        @Html.TextBoxFor( m => m.order.CustomerLastName, new { @class = "form-control" } )
+                        <div class="error">@Html.ValidationMessageFor( m => m.order.CustomerLastName )</div>
+                    </div>
+                    @*}*@
+                    @*if (!Roles.IsUserInRole("Admin") || !Roles.IsUserInRole("ContentWriter") || !Roles.IsUserInRole("BandMember") || !Roles.IsUserInRole("Customer"))
+                    {
+
+                        <div>
+                            <label>First Name: </label>
+                            @Html.TextBoxFor(m => m.order.CustomerFirstName, new { @class = "form-control" })
+                        </div>
+                        <div>
+                            <label>Last Name: </label>
+                            @Html.TextBoxFor(m => m.order.CustomerLastName, new { @class = "form-control" })
+                        </div>
+                    }*@
+
+
+                    <div>
+                        <label class="labelPad">City: </label>
+                        @Html.TextBoxFor( m => m.order.CustomerCity, new { @class = "form-control" } )
+                        <div class="error">@Html.ValidationMessageFor( m => m.order.CustomerCity )</div>
+                    </div>
+                    <div>
+                        <label class="labelPad">State: </label>
+                        @Html.TextBoxFor( m => m.order.CustomerState, new { @class = "form-control" } )
+                        <div class="error">@Html.ValidationMessageFor( m => m.order.CustomerState )</div>
+                    </div>
+                    <br/>
+                    <div style="font-size: 150%">Total Cost of Order: <span style="font-size: 150%" id="total"> </span></div>
+                    <br/>
+
+                    <button type="submit" class="btn btn-success">Confirm Order</button>
+                    @Html.ActionLink( "Cancel", "ProductDisplay", "Public", null, new { @class = "btn btn-info" } )
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/App/CalculateTotal.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/App/OrderValidation.js"></script>
+    <script src="~/Scripts/app/jquery-validate-defaults.js"></script>
+    <script src="~/Scripts/additional-methods.min.js"></script>
+}

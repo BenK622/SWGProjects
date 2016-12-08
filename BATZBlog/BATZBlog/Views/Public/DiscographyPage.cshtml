@@ -1,0 +1,60 @@
+﻿@model List<BATZBlog.Models.Album>
+@{
+    ViewBag.Title = "DiscographyPage";
+}
+
+<div class="blogTitle margin-spacer">Discography</div>
+
+@foreach(var album in Model)
+{
+    <div class="container-fluid margin-spacer">
+        <div class="row">
+            <div class="col-xs-4 nopadding albumnColumnHeight margin-spacer">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="OrderTitle blogBodyFull">
+                            @album.AlbumName - @album.ReleaseDate.ToShortDateString()
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="blogBodyFull">
+                            <img src="@string.Format( @album.AlbumCoverImage )" width="300" height="300"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3 nopadding albumnColumnHeight margin-spacer">
+                <div class="jag">
+                    @foreach(var track in album.Tracks)
+                    {
+                        <div class="row">
+                            <div class="col-xs-12 nopadding">
+                                <div class="albumnSongs2 albumName">
+                                    <span>@track.TrackName</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-xs-5 nopadding albumnColumnHeight margin-spacer">
+                <div class="jag">
+                    @foreach(var track in album.Tracks)
+                    {
+                        <div class="row">
+                            <div class="col-xs-12 nopadding ">
+                                <div class="albumnSongs">
+                                    <audio src="@string.Format( track.TrackFilePath )" type="audio/mp3" controls="controls"></audio>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

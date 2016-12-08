@@ -1,0 +1,61 @@
+﻿@model BATZBlog.Models.ProductPageViewModel
+@*<a href="~/Views/Public/ProductDisplay.cshtml">~/Views/Public/ProductDisplay.cshtml</a>*@
+@{
+    ViewBag.Title = "ProductDisplay";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 nopadding">
+            <div class="row">
+                <div class="col-sm-12 blogTitle margin-spacer">
+                    <div>
+                        Merchandise For Sale
+                    </div>
+                </div>
+            </div>
+
+            @foreach(var category in Model.productCategories)
+            {
+                <div class="productCatTitleContainer">
+                    <div class="row ">
+                        <div class="col-xs-12 productTitle">
+                            <div>@category.ToString( )</div>
+                            <div class="prodCatSeperator"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="col-xs-12 productCatContainer">
+                        @foreach(var product in Model.products)
+                        {
+                            if(product.ProductCategory == category)
+                            {
+                                <div class="col-sm-4 productContainer">
+                                    <div class="row">
+                                        <div class="productImage">
+                                            <img src="@string.Format( @product.ProductImagePath )"/>
+                                        </div>
+                                    </div>
+                                    <div class="productTitalAndDesription">
+                                        <div class="row productTitle">
+                                            <div class="PorductName">@product.ProductName</div>
+                                        </div>
+                                        <div class="row productDesc">
+                                            <div>@product.ProductDescription</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        @Html.ActionLink( "Details", "ProductDetail", "Public", new { product.ProductId }, new { @class = "btn btn-info" } )
+                                        @Html.ActionLink( "Order", "OrderProduct", "Public", new { product.ProductId }, new { @class = "btn btn-success" } )
+
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

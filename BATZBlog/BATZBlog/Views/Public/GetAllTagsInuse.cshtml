@@ -1,0 +1,10 @@
+﻿@model Dictionary<BATZBlog.Models.Tag, int>
+
+<div class="blogTitle">Get Blogs by Tag</div>
+
+<div id="tagcloud" class="blogBody">
+    @foreach(var tag in Model.Keys)
+    {
+        <span>@Html.ActionLink( tag.Name, "GetBlogsByTag", "Public", new { tagId = tag.TagId }, new { @rel = @Model[tag] } )&nbsp;</span>
+    }
+</div>

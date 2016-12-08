@@ -1,0 +1,65 @@
+﻿@model List<BATZBlog.Models.Product>
+
+<div class="row" style="margin: 15px 0 0px 5px">
+    <div class="col-xs-2 nopadding" style="padding-top: 15px;">
+        @Html.ActionLink("Add a New Product", "AddProduct", "Admin", null, new { @class = "btn btn-success" })
+    </div>
+
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <table class="col-xs-12 table-striped tableForOrders tablerow margin-spacer">
+            <thead class="showTableHeader">
+            @if(Model.Count != 0)
+            {
+                <tr>
+                    <th>
+                        Product Name
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            }
+
+            </thead>
+
+            <tbody>
+            @if(Model.Count != 0)
+            {
+                foreach(var product in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink( product.ProductName, "ProductDetail", "Public", new { product.ProductId }, null )
+                        </td>
+
+                        <td>
+                            @Html.ActionLink( "Edit", "EditProduct", "Admin", new { product.ProductId }, new { @class = "btn btn-info" } )
+                        </td>
+
+                        <td>
+                            @Html.ActionLink( "Delete", "DeleteProduct", "Admin", new { product.ProductId }, new { @class = "btn btn-danger" } )
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td style="color: red">
+                        There are no products!
+                    </td>
+                </tr>
+            }
+
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
