@@ -1,0 +1,16 @@
+Id,FirstNAme,LastName,Email,PhoneNumber,Education,Job
+1,June,Bug,jb@dog.com,24234242,,
+2,June,Bug,jb@dog.com,4343534,,
+3,test,tester,sadfs,21434343,,
+4,ben,kraus,benk622@gmail.com,23424322,,
+5,Benjamin,Kraus,bkraus@kellernational.com,2169650646,,
+6,Benjamin,Kraus,benk622@gmail.com,2168486664,,
+7,adfsdaf,dfasas,dsfsad,23213,,
+8,dfgds,dfgsfd,fdsgfd,safdsa,,
+9,Benjamin,Kraus,benk622@gmail.com,2168486664,,
+10,Benjamin,Kraus,benk622@gmail.com,2168486664,,
+11,Benjamin,Kraus,benk622@gmail.com,2168486664,,
+12,Benjamin,Kraus,benk622@gmail.com,2168486664,,
+13,Benjamin,Kraus,benk622@gmail.com,2168486664,,
+14,Benjamin,Kraus,benk622@gmail.com,2168486664,,
+15,ben,kraus,benk622@gmail.com,2168486664,Right Fielder,DataFiles/Resume_benkraus15.txt

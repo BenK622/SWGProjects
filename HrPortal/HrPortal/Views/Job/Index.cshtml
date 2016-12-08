@@ -1,0 +1,30 @@
+﻿@model List<HrPortal.Models.JobModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (Model.Any())
+{
+    
+    <div id="accordion" class="shadow">
+        @foreach (var job in Model)
+        {
+                <h3 class="jobtitle">@job.JobName</h3>
+                <div>
+                    <p class="jobdescription">@job.JobDescription</p>
+                    <p class="applyButton">@Html.ActionLink("Apply Now", "Apply", "Job", new { JobName = job.JobName }, new { @class = "btn btn-success" })</p>
+                </div>
+           
+        }
+            
+    </div>
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/App/indexFormat.js"></script>
+
+}
+

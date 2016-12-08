@@ -1,0 +1,56 @@
+﻿@model List<Contacts.Models.Contact>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My Contacts</h2>
+@Html.ActionLink("Add Contact", "AddContact", "Home")
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.ContactID</td>
+                <td>@contact.Name</td>
+                <td>@contact.PhoneNumber</td>
+                <td>
+                    <form action="/Home/DeleteContact" method="post">
+                        <input type="hidden" name="ContactId" id="ContactId" value="@contact.ContactID"/>
+                        <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>You have no Contacts, how sad!</p>
+}
+
+@*<div class="container">
+    <div class="row">
+        <div class="col-lg-4">ID</div>
+        <div class="col-lg-4">Name</div>
+        <div class="col-lg-4">Phone</div>
+    </div>
+    @foreach (var contact in Model)
+    {
+        <div class="row">
+            <div class="col-lg-4 col-sm-2">@contact.ContactID</div>
+            <div class="col-lg-4 col-sm-5">@contact.Name</div>
+            <div class="col-lg-4 col-sm-5">@contact.PhoneNumber</div>
+        </div>
+    }
+</div>*@

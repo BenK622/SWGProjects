@@ -1,0 +1,17 @@
+﻿@model HrPortal.Models.ApplicantResponse
+
+@{
+    ViewBag.Title = "ApplyConfirm";
+}
+
+<h2>Application Successful</h2>
+
+<div class="ui-draggable shadow" id="draggable">
+    <p>We will be in touch soon unless you are unqualfied in which case you will never hear from us. In the meantime feel free to drag this message around!</p>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/App/applyConfirm.js"></script>
+
+}

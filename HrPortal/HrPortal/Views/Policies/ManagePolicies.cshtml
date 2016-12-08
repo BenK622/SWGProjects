@@ -1,0 +1,22 @@
+﻿@model HrPortal.Models.CategoryVM
+@{
+    ViewBag.Title = "ManagePolicies";
+}
+
+<h2>ManagePolicies</h2>
+
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Add New Policy ", "AddPolicy", "AddPolicy")
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Major:</label>
+                @Html.DropDownListFor(m => m.Categories, Model.Categories, "Choose One",new { @class = "form-control" })
+            </div>
+        }
+
+    </div>
+</div>

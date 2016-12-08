@@ -1,0 +1,18 @@
+﻿@model OrderSystemSpike.Models.CustomerVM
+@{
+    ViewBag.Title = "SelectCustomer";
+}
+
+<h2>Select correct customer from list</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.SelectedCustomerID, Model.Customers, "Choose Your Name", new { @class = "form-control" })
+    </div>
+    
+    
+}
+
+
+@*Link to add a new customer*@ 
